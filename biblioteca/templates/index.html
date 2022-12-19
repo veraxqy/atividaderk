@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} Página Inicial {% endblock title %}
+{% block content %}
+<!-- Content wrapper -->
+<div class="content-wrapper">
+    <!-- Content -->
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+      <div class="row">
+
+        <div class="col-md mb-4 mb-md-0">
+            <div class="card">
+              <h5 class="card-header">Avisos!</h5>
+              <div class="card-body">
+
+                <div class="alert alert-success" role="alert"><a href="{% url 'url_listar_cidades' %}">Listagem de cidades</a></div>
+
+                <div class="alert alert-danger" role="alert"><a href="{% url 'url_consulta' %}">Consulta</a></div>
+
+                <div class="alert alert-warning" role="alert"><a href="{% url 'url_grupo' %}">Grupo</a></div>
+
+
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+    </div>
+    <!-- / Content -->
+
+    <div class="content-backdrop fade"></div>
+  </div>
+  <!-- Content wrapper -->
+{% endblock content %}

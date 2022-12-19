@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %} Cidades {% endblock title %}
+{% block content %}
+<div class="container-xxl flex-grow-1">
+
+    
+    <!-- Base da Tabela -->
+    <div class="card my-3">
+      <h5 class="card-header">Cidades</h5>
+      
+      <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Cód. Cidade</th>
+              <th>Nome</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody class="table-border-bottom-0">
+            {% for cidade in cidade %}
+            <tr>
+              <td><span class="badge badge-center bg-label-secondary">{{ cidade.idcidade }}</span></td>
+              <td>{{ cidade.nomecidade }}</td>
+              <td>
+                <div class="dropdown">
+                  <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                    <i class="bx bx-dots-vertical-rounded"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url 'url_update_cidade' cidade.idcidade %}"
+                      ><i class="bx bx-edit-alt me-1"></i> Editar</a
+                    >
+                    <a class="dropdown-item" href="{% url 'url_delete_cidade' cidade.idcidade %}"
+                      ><i class="bx bx-trash me-1"></i> Deletar</a
+                    >
+                  </div>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!--/ Base da Tabela -->
+    <a href="{% url 'url_criar_cidades' %}" class="btn btn-primary">+ Adicionar nova cidade</a>
+</div>
+{% endblock content %}
